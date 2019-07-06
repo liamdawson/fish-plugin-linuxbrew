@@ -1,7 +1,7 @@
 if [ -d "/home/linuxbrew/.linuxbrew" ]
-  set -l linuxbrew_base_path "/home/linuxbrew/.linuxbrew"
+  set -g linuxbrew_base_path "/home/linuxbrew/.linuxbrew"
 else if [ -d "$HOME/.linuxbrew" ]
-  set -l linuxbrew_base_path "$HOME/.linuxbrew"
+  set -g linuxbrew_base_path "$HOME/.linuxbrew"
 end
 
 if set -q linuxbrew_base_path
@@ -22,3 +22,5 @@ if set -q linuxbrew_base_path
   contains -- $linuxbrew_infopath $INFOPATH
     or set -gx INFOPATH $linuxbrew_infopath $INFOPATH
 end
+
+set -e linuxbrew_base_path
